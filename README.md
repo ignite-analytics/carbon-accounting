@@ -26,16 +26,39 @@ As the [Exiobase 3 database](https://zenodo.org/record/5589597#.Ymfh8NNBweZ) is 
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 ## Introduction to Ignite Procurement
-Ignite Procurement (or simply Ignite) is a Norwegian SaaS-company with more than 50 employees located across two offices, one in Oslo, Norway and the other in Warsaw, Poland. Ignite provides a web-based application for consolidation and analysis of data, applied for work with strategic procurement. The last couple of years, Ignite has expanded its functionality to include contract management and an assessment module that can be used internally and externally towards your suppliers. As we aim to 
-> empower companies around the world to make smarter and more **responsible** procurement decisions 
-
-Ignite see the potential to contribute with carbon accounting based on procurement data as a small step in the direction of the 1.5 degree goal. 
+Ignite Procurement (or simply Ignite) is a Norwegian SaaS-company with more than 50 employees located across two offices, one in Oslo, Norway and the other in Warsaw, Poland. Ignite provides a web-based application for consolidation and analysis of data, applied for work with strategic procurement. The last couple of years, Ignite has expanded its functionality to include contract management and an assessment module that can be used internally and externally towards your suppliers. As we aim to *empower companies around the world to make smarter and more **responsible** procurement decisions*, Ignite see the potential to contribute with carbon accounting based on procurement data as a small step in the direction of the 1.5 degree goal. 
 
 More information can be found on our website: [igniteprocurement.com](https://www.igniteprocurement.com/)
 
 ## Carbon accounting basics
 
+To be able to measure reductions in emissions, and even set reduction targets for that matter, you need to calculate the emissions you are responsible for, either as a person, coorporation or nation. In this setting, it is the calculation of emissions that coorporations are responsible for that is in focus, and the gold standard for this is the Greenhouse Gas Protocol (GHGP) [Corporate Standard](https://ghgprotocol.org/corporate-standard). It was expanded in 2011 with the [Corporate Value Chain (Scope 3) Standard](https://ghgprotocol.org/standards/scope-3-standard), which includes detailed descriptions and examples for calculations in all the categories of indirect emissions not directly controlled by a coorporation. Emissions are by the GHGP defined as three scopes: 1, 2 and 3. Scope 1 includes the direct emissions from a company's own direct emissions of greenhouse gases to the air. Scope 2 is defined as the indirect emissions from a company's use of electricity, heating and cooling. All other emissions that a company is indirectly responsible for are placed within the 15 different categories of scope 3, as seen by the image below[^ghgp-scopes]. 
+
+![image](https://user-images.githubusercontent.com/88656160/204288151-31f47d11-5b0c-47ce-8bdb-4761215f99ee.png)
+
+> Note that there are other frameworks defining carbon accounting practices for coorporations such as [ISO-14064-1](https://www.iso.org/standard/66453.html), [GRI 305](https://www.globalreporting.org/standards/media/1012/gri-305-emissions-2016.pdf), [CDP](https://www.cdp.net/en), and [PCAF](https://carbonaccountingfinancials.com/standard#the-global-ghg-accounting-and-reporting-standard-for-the-financial-industry). However, all of them are based on the GHGP, often with specified clarifications or additions for certain categories of the GHGP standard.
+
+Common for allmost all greenhouse gas emission calculations is that
+* You should include all 7 greenhouse gases as defined by the (updated) Kyoto protocol, usually presented as carbon dioxide equivalents (CO<sub>2</sub>e)
+  * Standard conversion rates between the different gases are included in the IPCC reports (AR6 being the latest). The latest available should be selected, using the global warming potential of 100 years (GWP-100)
+* The calculation it self usually encapsulate some amount of something (e.g. the emissions from burning 100L of diesel) times the best fitting emission factor that is available (e.g. 2.70 kg CO<sub>2</sub>e per L diesel)
+  * The selected emission factor should be as specific as possible, optimally including matching the spatial (e.g. country), temporal (e.g. year), and technological (e.g. specific process) dimentions.
+  
+Emission factors are oftentimes diveded into two categories, spend-based (where the amount is a monetary one, e.g. 1.2 kg CO<sub>2</sub>e/€) and activity-based (where the amount is anything else, for instance kg, L, km, person-night etc.)
+
+[^ghgp-scopes]: [Greenhouse Gas Protocol: Corporate Value Chain (Scope 3) Accounting and Reporting Standard, Introduction chapter, Figure 1.1](https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard-EReader_041613_0.pdf)
+
 ## About Exiobase
+There are different sources of emission factors, usually from statistical bureaus, scientific studies or industry clusters. The UK Department for Business, Energy & Industrial Strategy (DEFRA) releases yearly [emission factors](https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2022) that are widely used, especially for activity-based calculations. Additionally, the German climate-API company Climatiq has a [data explorer](https://www.climatiq.io/explorer) where a large portion of open source emission factors are collected in one place. 
+
+What we assume based on our experience is the most used database for spend-based emission factors, however, is Exiobase 3, where emission factors is one of several different dimensions of available data. On their [website](https://www.exiobase.eu/index.php/about-exiobase), they describe Exiobase as follows:
+
+> EXIOBASE is a global, detailed Multi-Regional Environmentally Extended Supply-Use  Table (MR-SUT) and Input-Output Table (MR-IOT). It was developed by harmonizing and detailing supply-use tables for a large number of countries, estimating emissions and resource extractions by industry. Subsequently the country supply-use tables were linked via trade  creating an MR-SUT and producing a MR-IOTs from this. The MR-IOT that can be used for the analysis of the environmental impacts associated with the final consumption of product groups.
+>
+> EXIOBASE was developed by a consortium of several research institutes in projects financed by the European research framework programs. Three version of EXIOBASE are available.
+
+
+There are two versions of Exiobase, an industry- and a product-version. Both covers 44 countries and 5 rest of the world regions (more or less overlapping with continents). While the industry version covers 163 industries, the product version is expanded to 200 categories of products and services. Data is available for the years 1995-2022, and the full raw dataset of the newest version of Exiobase (3.8.2) is available [online](https://zenodo.org/record/5589597#.Ymfh8NNBweZ).
 
 ## Ignite version of Exiobase
 
