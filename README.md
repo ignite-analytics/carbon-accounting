@@ -26,7 +26,7 @@ As the [Exiobase 3 database](https://zenodo.org/record/5589597#.Ymfh8NNBweZ) is 
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 ## Introduction to Ignite Procurement
-Ignite Procurement (or simply Ignite) is a Norwegian SaaS-company with more than 50 employees located across two offices, one in Oslo, Norway and the other in Warsaw, Poland. Ignite provides a web-based application for consolidation and analysis of data, applied for work with strategic procurement. The last couple of years, Ignite has expanded its functionality to include contract management and an assessment module that can be used internally and externally towards your suppliers. As we aim to *empower companies around the world to make smarter and more **responsible** procurement decisions*, Ignite see the potential to contribute with carbon accounting based on procurement data as a small step in the direction of the 1.5 degree goal. 
+Ignite Procurement (or simply Ignite) is a Norwegian SaaS-company with more than 50 employees located across two offices, one in Oslo, Norway and the other in Warsaw, Poland. Ignite provides a web-based application for consolidation and analysis of data, applied for work with strategic procurement. The last couple of years, Ignite has expanded its functionality to include contract management and an assessment module that can be used internally and externally towards your suppliers. As we aim to *empower companies around the world to make smarter and more **responsible** procurement decisions*, Ignite see the potential to contribute with carbon accounting based on procurement data as a small step in the direction of the 1.5 degree target as defined at COP21 in Paris, 2015. 
 
 More information can be found on our website: [igniteprocurement.com](https://www.igniteprocurement.com/)
 
@@ -40,7 +40,7 @@ To be able to measure reductions in emissions, and even set reduction targets fo
 
 Common for allmost all greenhouse gas emission calculations is that
 * You should include all 7 greenhouse gases as defined by the (updated) Kyoto protocol, usually presented as carbon dioxide equivalents (CO<sub>2</sub>e)
-  * Standard conversion rates between the different gases are included in the IPCC reports (AR6 being the latest). The latest available should be selected, using the global warming potential of 100 years (GWP-100)
+  * Standard conversion rates between the different gases are included in the IPCC reports (AR6 being the latest). The latest available should be selected, using the global warming potential of 100 years (GWP100)
 * The calculation it self usually encapsulate some amount of something (e.g. the emissions from burning 100L of diesel) times the best fitting emission factor that is available (e.g. 2.70 kg CO<sub>2</sub>e per L diesel)
   * The selected emission factor should be as specific as possible, optimally including matching the spatial (e.g. country), temporal (e.g. year), and technological (e.g. specific process) dimentions.
   
@@ -61,10 +61,15 @@ What we assume based on our experience is the most used database for spend-based
 There are two versions of Exiobase, an industry- and a product-version. Both covers 44 countries and 5 rest of the world regions (more or less overlapping with continents). While the industry version covers 163 industries, the product version is expanded to 200 categories of products and services. Data is available for the years 1995-2022, and the full raw dataset of the newest version of Exiobase (3.8.2) is available [online](https://zenodo.org/record/5589597#.Ymfh8NNBweZ).
 
 ## Ignite version of Exiobase
+Some reformatting of the data is necessary to use Exiobase as there are no plain files with the spend-based emission factors readily available. The most important part is this is to extract and format the emission factors that are stored in the M.txt files for each of the industry/product versions and each year. 
+
+In Exiobase, emission factors using GWP100 numbers from both AR4 and AR5 are available, and the current Ignite version of Exiobase as found in the [EUR_Exiobase3_8_2 Ignite v1_1](EUR_Exiobase3_8_2-Ignite1_1-Products_2010-2022.xlsx) excel file, use the AR5 values. In a future version, GWP100 values for AR6 will be used instead, but that requires much more reformatting of the database.
 
 ### Motivation for altering the database
+Unfortunately, there are several outliers in the dataset as a result of sparse statistical data in certain combinations of regions and categories. These combinations of a region and category will rarely be used, but can still have a huge impact on the final result. Therefore, Ignite has created its own version of Exiobase where outliers are adjusted and blank values filled with estimates based on the other available data. Also, it is practical to have a category to put the tail-spend into that cannot easily be classified anywhere else, that still represents the average emission from a specific region and year. This is the reason why regional (weighted) averages have been added to the Ignite version.
 
 ### Changes
+As mentioned in the paragraph above, the current two changes to the Exiobase database are the adjustments of outliers and additions of regional averages. Both of these are described in more detail below. 
 
 #### Outlier adjustment
 
