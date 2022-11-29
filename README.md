@@ -89,10 +89,17 @@ It is important to be able to estimate also the tail-spend that might not be pos
 
 ### Column description
 Here follows a description of the columns in the Ignite version of Exiobase as seen in the [EUR_Exiobase3_8_2 Ignite v1_1](EUR_Exiobase3_8_2-Ignite1_1-Products_2010-2022.xlsx) excel file:
-* `EF Category L1`: An added layer of categorization to distinguish products from regional averages and spend that should be exempt
-* `EF Category L2`: the 200 products and services as defined by Exiobase
-* `EF Region`: The 49 regions as defined by Exiobase 
-* `EF Year`: The year as defined by Exiobase 
-* `EF Currency`: The currency (EUR here, but we have versions for USD and NOK as well)
+* `EF Category L1` An added layer of categorization to distinguish products from regional averages and spend that should be exempt
+* `EF Category L2` The 200 products and services as defined by Exiobase
+* `EF Region` The 49 regions as defined by Exiobase 
+* `EF Year` The year as defined by Exiobase 
+* `EF Currency` The currency (EUR here, but we have versions for USD and NOK as well)
+* `EF Source` The Exiobase version (and Ignite update as described in this repository)
+* `EF Unique String` A text field combining the L1 and L2 of the Exiobase category, the Exiobase region, and the year
+* `Adjusted by Ignite` A boolean field showing whether the emission factor has been adjusted/added or not when compared with the original Exiobase values
+* `EF IPCC AR5 [kg CO2e/€]` Corresponding to the original Exiobase values (except for the regional averages)
+* `Water Consumption [m3/€]` Corresponding to the original Exiobase values (except for the regional averages)
+* `Land Use [m2/€]` Corresponding to the original Exiobase values (except for the regional averages)
+* `Emission Factor [kg CO2e/€]` The emission factor values used in Ignite to calculate emissions from spend
 
 ## Ignite carbon accounting methodology
