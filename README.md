@@ -13,6 +13,7 @@ A public github repository describing the carbon accounting methodology of Ignit
   * [Changes](#changes)
     * [Outlier adjustment](#outlier-adjustment)
     * [Regional averages](#regional-averages)
+   * [Column description](#column-description)
 * [Ignite carbon accounting methodology](#ignite-carbon-accounting-methodology)
 
 ## License
@@ -65,6 +66,13 @@ Some reformatting of the data is necessary to use Exiobase as there are no plain
 
 In Exiobase, emission factors using GWP100 numbers from both AR4 and AR5 are available, and the current Ignite version of Exiobase as found in the [EUR_Exiobase3_8_2 Ignite v1_1](EUR_Exiobase3_8_2-Ignite1_1-Products_2010-2022.xlsx) excel file, use the AR5 values. In a future version, GWP100 values for AR6 will be used instead, but that requires much more reformatting of the database.
 
+Ignite uses the product version of exiobase (the pxp folders), for the years 2010-2022. The columns used from the M.txt files are the following:
+* `GHG emissions AR5 (GWP100) | GWP100 (IPCC, 2010)`
+* `Water Consumption Blue - Total`
+* `Land use Crop, Forest, Pasture`
+
+And all can be found in the emission factor file in this repository. 
+
 ### Motivation for altering the database
 Unfortunately, there are several outliers in the dataset as a result of sparse statistical data in certain combinations of regions and categories. These combinations of a region and category will rarely be used, but can still have a huge impact on the final result. Therefore, Ignite has created its own version of Exiobase where outliers are adjusted and blank values filled with estimates based on the other available data. Also, it is practical to have a category to put the tail-spend into that cannot easily be classified anywhere else, that still represents the average emission from a specific region and year. This is the reason why regional (weighted) averages have been added to the Ignite version.
 
@@ -72,7 +80,19 @@ Unfortunately, there are several outliers in the dataset as a result of sparse s
 As mentioned in the paragraph above, the current two changes to the Exiobase database are the adjustments of outliers and additions of regional averages. Both of these are described in more detail below. 
 
 #### Outlier adjustment
+The most important outliers to adjust are the extremely large numbers, in some cases 6-8 orders of magnitude above the average emission factors. However, we also want to adjust the outliers that are too small and too large, without being extreme. Also, we want to add values to the combinations of product/service and region that originally in Exiobase is set to 0. 
+
+This is all solved by using two sets of limits. One global set of upper and lower limit for all emission factors within a specified year, using the 3- and 97-percentiles (without considering the 0-values). A local set of limits are also found for each emission factor category within that year, using 5- and 95-percentiles. Then a set of conditions are checked to adjust values within the local and global limits. If a value is more extreme than the global limits, it is adjusted to the corresponding limit. The same for the local limits, if they are within the global ones. Here, there's also a check for negative values as there are around 10 of them for the whole database. 0-values are also adjusted in this step to the lower limit (global if the local is lower than the global). In the next iteration of the Ignite version of Exiobase, the 0-values will most likely be set to a weighted average within that category, instead of using the lower limit for 0-values to give a better represenation of that category.
 
 #### Regional averages
+It is important to be able to estimate also the tail-spend that might not be possible to classify anywhere else without an effort much higher than the potential gain for that effort. It would be possible to just create an average of all the emission factors, either divided by year, region, or both. However, this would potentially give too much weight to high emission factors from smaller categories by size. Therefore, a weighted average has been applied to each region per year, weighted by the relative sizes of each industry in that region for that year as defined by the x.txt files. In a future version, the use-tables will likely be used instead of the x.txt files for an increased accuracy on the weighted sizes of each product and service category.
+
+### Column description
+Here follows a description of the columns in the Ignite version of Exiobase as seen in the [EUR_Exiobase3_8_2 Ignite v1_1](EUR_Exiobase3_8_2-Ignite1_1-Products_2010-2022.xlsx) excel file:
+* `EF Category L1`: An added layer of categorization to distinguish products from regional averages and spend that should be exempt
+* `EF Category L2`: the 200 products and services as defined by Exiobase
+* `EF Region`: The 49 regions as defined by Exiobase 
+* `EF Year`: The year as defined by Exiobase 
+* `EF Currency`: The currency (EUR here, but we have versions for USD and NOK as well)
 
 ## Ignite carbon accounting methodology
