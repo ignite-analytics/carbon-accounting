@@ -7,6 +7,7 @@ A public github repository describing the carbon accounting methodology of Ignit
 * [License](#license)
 * [Introduction to Ignite Procurement](#introduction-to-ignite-procurement)
 * [Carbon accounting basics](#carbon-accounting-basics)
+ * [Some general challenges with emission factors](#some-general-challenges-with-emission-factors)
 * [About Exiobase](#about-exiobase)
 * [Ignite version of Exiobase](#ignite-version-of-exiobase)
   * [Motivation for altering the database](#motivation-for-altering-the-database)
@@ -51,6 +52,27 @@ Common for allmost all greenhouse gas emission calculations is that
 Emission factors are oftentimes diveded into two categories, spend-based (where the amount is a monetary one, e.g. 1.2 kg CO<sub>2</sub>e/€) and activity-based (where the amount is anything else, for instance kg, L, km, person-night etc.)
 
 [^ghgp-scopes]: [Greenhouse Gas Protocol: Corporate Value Chain (Scope 3) Accounting and Reporting Standard, Introduction chapter, Figure 1.1](https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard-EReader_041613_0.pdf)
+
+### Some general challenges with emission factors
+`Note that this section was provided by the OpenAI chat GPT language model and fact checked by Ignite`
+
+Some of the challenges with using emission factors include:
+
+* Ensuring the quality and relevance of the emission factors: Emission factors can vary depending on the source, location, and activity, so it is important to use the most appropriate and up-to-date factors for your specific situation.
+
+* Accounting for variability and uncertainty: Emission factors are typically based on averages or estimations, and there can be significant variability and uncertainty in the emissions from different activities. This can make it difficult to accurately estimate emissions, especially for complex or unique situations.
+
+* Handling temporal and spatial variations: Emissions can vary over time and space, depending on factors such as weather, technology, and market conditions. This can make it challenging to apply emission factors consistently and accurately across different time periods and locations.
+
+* Dealing with missing or incomplete data: In many cases, there may be gaps in the data or information needed to estimate emissions using emission factors. This can make it difficult to account for all relevant emissions and can introduce errors or uncertainty into the estimates.
+
+* Incorporating emissions from indirect or downstream activities: Many emissions, especially in the scope 3 category, are indirect or occur downstream from the activity being considered. These emissions can be difficult to quantify and account for using emission factors.
+
+* Addressing changes in activity levels or emissions intensity: Over time, the emissions intensity (emissions per unit of activity) of different activities can change due to factors such as technological improvements, policy changes, and market conditions. This can make it challenging to apply emission factors consistently and accurately over the long term.
+
+* Considering emissions from multiple gases: Emissions from different activities can involve multiple greenhouse gases, each with its own unique characteristics and impacts. This can make it difficult to compare and combine emissions from different sources and activities using a single emission factor.
+
+These are some of the challenges that can arise when using emission factors to estimate greenhouse gas emissions. It is important to carefully consider these challenges and address them in an appropriate and transparent manner when using emission factors in GHG accounting and reporting.
 
 ## About Exiobase
 There are different sources of emission factors, usually from statistical bureaus, scientific studies or industry clusters. The UK Department for Business, Energy & Industrial Strategy (DEFRA) releases yearly [emission factors](https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2022) that are widely used, especially for activity-based calculations. Additionally, the German climate-API company Climatiq has a [data explorer](https://www.climatiq.io/explorer) where a large portion of open source emission factors are collected in one place. 
@@ -115,7 +137,7 @@ Ignite follows a 3-step approach to scope 3 carbon accounting:
 
 ### Step 1: Create heatmap
 
-What Ignite provides out of the box and which can be set up within a day of having access to a company's procurement data is the initial match of every single purchase with a spend-based Exiobase emission factor. For mapping a purchase by its year, this is usually pretty straight forward, the most challenging decission is what date to chose if more are avilable. We try to use the year from the transaction date where possible, but invoice date can also be used, and if the company has fiscal years defined in their data, that information is used to match up the calculations with their financial reporting. Matching with an Exiobase region is usually also relatively simple, as most companies have supplier country as a field in their procurement data, where we have standard rulesets going from the different spellings of countries, as well as Alpha-2 codes, into the 49 Exiobase regions. The third part of matching with an emission factor, matching each transaction with an Exiobase product/service category is the most challenging one, and is usually done in multiple iteration with increasing accuracies. The first iteration of this process utilize supplier industry information from 3rd-party databases like Enin and Infobel, where all NACE and SIC industry codes on the lowest level have been matched to Exiobase as standard rulesets. Everything that is not categorized by this method at this stage will be put into the regional average bucket, where only the supplier region and purchase year will decide the emission factor. The next iteration involves creating rules from more accuract information like GL account, product description or spend categorization, depending on what is available. In some cases it will be possible to map all spend by a high-accuracy dimention such as by a product master. If this is the case, then this should be strived for. However, note that it is the most important categories (when accounting for spend size, emissions zise and how vital the category is for the company) that should be prioritized in this iterative work towards more accurate calculations. 
+What Ignite provides out of the box and which can be set up within a day of having access to a company's procurement data is the initial match of every single purchase with a spend-based Exiobase emission factor. For mapping a purchase by its year, this is usually pretty straight forward, the most challenging decission is what date to chose if more are avilable. We try to use the year from the transaction date where possible, but invoice date can also be used, and if the company has fiscal years defined in their data, that information is used to match up the calculations with their financial reporting. Matching with an Exiobase region is usually also relatively simple, as most companies have supplier country as a field in their procurement data, where we have standard rulesets going from the different spellings of countries, as well as Alpha-2 codes, into the 49 Exiobase regions. The third part of matching with an emission factor, matching each transaction with an Exiobase product/service category is the most challenging one, and is usually done in multiple iteration with increasing accuracies. The first iteration of this process utilize supplier industry information from 3rd-party databases like Enin and Infobel, where all NACE and SIC industry codes on the lowest level have been matched to Exiobase as standard rulesets. Everything that is not categorized by this method at this stage will be put into the regional average bucket, where only the supplier region and purchase year will decide the emission factor. The next iteration involves creating rules from more accuract information like GL account, product description or spend categorization, depending on what is available. In some cases it will be possible to map all spend by a high-accuracy dimention such as by a product master. If this is the case, then this should be strived for. However, note that it is the most important categories (when accounting for spend size, emissions size and how vital the category is for the company) that should be prioritized in this iterative work towards more accurate calculations. 
 
 ![image](https://user-images.githubusercontent.com/88656160/204540792-8ecec762-a6d2-4c98-98ff-736653e1bd63.png)
 
