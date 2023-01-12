@@ -54,8 +54,6 @@ Emission factors are oftentimes diveded into two categories, spend-based (where 
 [^ghgp-scopes]: [Greenhouse Gas Protocol: Corporate Value Chain (Scope 3) Accounting and Reporting Standard, Introduction chapter, Figure 1.1](https://ghgprotocol.org/sites/default/files/standards/Corporate-Value-Chain-Accounting-Reporing-Standard-EReader_041613_0.pdf)
 
 ### Some general challenges with emission factors
-`Note that this section was provided by the OpenAI chat GPT language model and fact checked by Ignite`
-
 Some of the challenges with using emission factors include:
 
 * Ensuring the quality and relevance of the emission factors: Emission factors can vary depending on the source, location, and activity, so it is important to use the most appropriate and up-to-date factors for your specific situation.
