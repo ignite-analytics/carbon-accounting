@@ -45,12 +45,32 @@ The flow of this process is described in the slide below.
 
 ![image](https://user-images.githubusercontent.com/88656160/204540792-8ecec762-a6d2-4c98-98ff-736653e1bd63.png)
 
-For the other parts of scope 3 categories not related to procurement, other initial estimates should be conducted as a screening to add information on where further efforts should be focused.
+For the other parts of scope 3 categories not related to procurement, other initial estimates should be conducted as a screening to add information on where further efforts should be focused. This is however not something that has been built into Ignite at this stage.
 
 ### Step 2: Select activities
+
+All organizations should strive towards increasing the accuracy of their calculated emissions over time. However, the first step is to start somewhere, so this is mostly relevant after running the spend-based method and an initial screening. Based on those results and the specifics of your corporation/organization, it should be possible to select certain categories where it is necessary to increase the accuracy to be able to start more specific initiatives on emission reduction.
+
+Some categories are more common for this exercise than others, both based on the availability of more specific emission data and what categories the accuracy increases the most when moving from spend-based to activity-based calculations. A typical example that many companies have already started with is the business travel category, specifically for air travel as this is something many travel agencies have numbers on already and it is a much talked about category. Calculations based on the number of passengers and the distance of a flight is much more accurate than only looking at the spend, as tickets to the same flight will vary hugely in price based on availability and other factors that doesn't necessarily increase the emissions correspondingly (for instance buying business vs economy). Other typical categories are as shown in the image below:
+
+- Raw materials
+  - The cradle-to-gate emissions for fuels (scope 3, category 3)
+  - Packaging and building materials, where the prices often fluctuate quite a bit within a year (scope 3 category 1)
+- Logistics
+  - A category where activity data is often reasonably available and where the calculated results are more accurate than with a spend-based approach
+- Waste
+  - Scope 3 category 5 can be covered by a spend-based approach, but an activity-based calculation will be much more accurate as more information on the type of waste and what is being done with it can be included
+- Business travel
+  - Especially the flights can be covered well with activity-based calculations, but also to a larger degree other modes of transport and hotel stays as well. A possibility is to use numbers from your travel agency on flights, but the spend-based approach on the rest of this category.
 
 ![image](https://user-images.githubusercontent.com/88656160/204543215-604eec5c-6444-402c-b2c4-ab0f6879c023.png)
 
 ### Step 3: Supplier specifics
 
+For the products that are of strategic importance and that by initial screening seems to represent a relatively large portion of your emissions, you should strive towards getting supplier specific emission estimates. This is both as a step to increase the accuracy, but also of importance when measuring reductions over time as neither spend- nor activity-based calculations typically shows anything other than a general decrease in spend or activity amount, or a general trend within the industry.
+
+Another important consideration is the fact that organizations sometimes chose to pay more for a goods or service that has less emissions, which would in a spend-based calculation increase the estimate, while it should be lowered. The main solution to this is to move to supplier specific calculations for these cases.
+
 ![image](https://user-images.githubusercontent.com/88656160/204543274-40515d15-3727-40b0-9e5d-9d34d225aae4.png)
+
+As shown in the image above, it is important to take into account the methodology, completeness and assumptions related to the supplier specific numbers. Today there are still many different ways of calculating emissions, and few companies have calculated their total scope 3, so when comparing numbers from different suppliers, make sure to do the comparison on similar grounds.
