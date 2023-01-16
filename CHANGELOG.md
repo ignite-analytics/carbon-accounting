@@ -13,7 +13,12 @@ A restructuring of the directory structure, preparing for more information on me
 - Changelog
 - Citation
 - Methodology directory
+  - Moved spend-based methodology to a new document
+  - Added initial description of methodology on activities and supplier-specifics
 - Exiobase emission factor directory
+  - Exiobase raw data
+  - Python notebook extracting and adjusting the Exiobase data
+  - Updated emission factor excel document
 
 ## [1.1.1] - 2022-11-29
 
