@@ -6,13 +6,17 @@ The versioning mainly follows the updates to the emission factor database (first
 
 ## [1.1.3] - 2023-03-13
 
-General updates to the texts in the three documents listed below. No major changes, only minor fixes of spelling and sentences to make the information more clear and concise.
+General updates to the texts in the three documents listed below. Primarily minor fixes of spelling and structure to make the information more clear and concise, but also the addition of concrete examples from Ignite's own carbon accounting.
 
 ### Updated
 
 - Changelog
 - Readme
 - Methodology
+
+### Added
+
+- More specific examples from Ignite's own carbon accounting and results of using the methodology.
 
 ## [1.1.2] - 2023-01-13
 
