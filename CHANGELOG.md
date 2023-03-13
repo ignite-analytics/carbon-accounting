@@ -4,6 +4,20 @@ A document describing the changes to this project, formatted based on [Keep a Ch
 
 The versioning mainly follows the updates to the emission factor database (first two numbers). However, this changelog document also document other notable changes to this project, noted by the PATCH version (last number in the versioning).
 
+## [1.1.3] - 2023-03-13
+
+General updates to the texts in the three documents listed below. Primarily minor fixes of spelling and structure to make the information more clear and concise, but also the addition of concrete examples from Ignite's own carbon accounting.
+
+### Updated
+
+- Changelog
+- Readme
+- Methodology
+
+### Added
+
+- More specific examples from Ignite's own carbon accounting and results of using the methodology.
+
 ## [1.1.2] - 2023-01-13
 
 A restructuring of the directory structure, preparing for more information on methodology past spend-based emission calculations and the addition of code and raw data used to extract the adapted version of Exiobase.
