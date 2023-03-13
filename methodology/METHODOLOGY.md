@@ -90,8 +90,25 @@ Using this methodology, it is possible to get corporation-level results of emiss
 
 For Ignite's own emissions, this method, with the addition of some activity-based calculations on scope 2 and other parts of scope 3, resulted in the following emissions.
 
+![Screenshot 2023-03-13 at 12 30 40](https://user-images.githubusercontent.com/88656160/224689812-488f4609-cc27-4184-96e1-b40ea2590e8e.png)
+
+![2022-emissions-by-category-and-data-quality- tco2e -2023-03-09](https://user-images.githubusercontent.com/88656160/224690019-d8fb799e-429e-424f-a401-2bcbd35acffb.svg)
+
+![emissions-over-time-by-ghg-scopes-and-categories- tco2e -2023-03-09](https://user-images.githubusercontent.com/88656160/224689986-190a125f-fa01-41e7-ab7e-191c057a6094.svg)
+
 When combined with company metrics such as number of employees and sales revenue, it becomes possible to showcase the emission intensities over time, relevant for target-setting and comparison with other similar companies. This can also be used to compare oneself or suppliers to the industry average by comparing to the corresponding Exiobase emission factor as seen with below with Ignite's emission intensities.
 
+![ignite-emission-intensities-2023-03-09](https://user-images.githubusercontent.com/88656160/224690221-ff082fa0-060b-459f-98e5-f33271c6da2e.svg)
+
+
+![ignite-specific-emission-factor-compared-to-the-exiobase-emission-factor-for-'computer-and-related-services'-in-norway-2023-03-09](https://user-images.githubusercontent.com/88656160/224690154-eb88e7ff-140c-401e-8aad-b614c0ac730a.svg)
+
+
 With a combination of methods, it is important to be able to visualize the distribution of what data and what calculation methods that have been used on the relative portions of the total calculated emissions. The analytics below show examples of this directly from our own carbon accounting.
+
+![calculation-specificity-development-2023-03-09](https://user-images.githubusercontent.com/88656160/224690344-469eb51d-7588-430c-a1e8-962ed3841e70.svg)
+
+![primary_secondary-data-according-to-the-ghgp-2023-03-09](https://user-images.githubusercontent.com/88656160/224690381-36258fd4-4baf-4be0-9fa8-733309d98e41.svg)
+
 
 [^ghgp-scope3]: [Greenhouse Gas Protocol: Technical Guidance for Calculating Scope 3 Emissions](https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf)
