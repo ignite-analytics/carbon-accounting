@@ -5,6 +5,7 @@
   - [Step 1: Create heatmap](#step-create-heatmap)
   - [Step 2: Select activities](#step-select-activities)
   - [Step 3: Supplier specifics](#step-supplier-specifics)
+- [Results](#results)
 
 ## Introduction
 
@@ -15,21 +16,25 @@ There are also other parts of an organizations scope 3 emissions where procureme
 - Category 2: capital good
   - Calculated in the same way as category 1, just distinguished by what is considered capital goods in financial reporting.
 - Category 3: fuel and energy-related activities
-  - This category includes the cradle-to-gate emissions of purchased fuels and electricity, as well as the transportation and distribution losses of purchased electricity. The GHGP scope 3 calculation guidance[^ghgp-scope3] does not mention spend as a source for calculating this category, so this is mainly relevant where activity data is available either in the procurement data or separately. However, Exiobase does include spend-based emission factors for cradle-to-gate emissions for a range of fuels, with regional and temporal distinguishment that is lacking for some activity-based emission factors for the same products. A spend-based approach could therefore be used for screening purposes, even though care should be taken, and it should not be used in reporting to be in accordance with the GHGP.
+  - This category includes the cradle-to-gate emissions of purchased fuels and electricity, as well as the transportation and distribution losses of purchased electricity. The GHGP scope 3 calculation guidance (scope 3 guide[^ghgp-scope3], Chapter 3) does not mention spend as a source for calculating this category, so this is mainly relevant where activity data is available either in the procurement data or separately. However, Exiobase does include spend-based emission factors for cradle-to-gate emissions for a range of fuels, with regional and temporal distinguishment that is lacking for some activity-based emission factors for the same products. A spend-based approach could therefore be used for screening purposes, even though care should be taken, and it should not be used in reporting to be in accordance with the GHGP.
 - Category 4: transportation and distribution
   - In the cases where the organization pays for this separately, this can definitively be covered by procurement data. If not fuel amount or distances are available, then a spend-based approach can be used. Note that this category covers both inbound and outbound logistics, as long as the reporting corporation pays for the service.
 - Category 5: waste generated in operations
-  - This is partly covered as yes, most organizations pay for this, but then again an activity-based method where the quantities and types of waste are combined with information about how the waste is handled, will give much more accurate results. Note that a spend-based approach is not strictly speaking listed in the GHGP scope 3 calculation guidance for category 5[^ghgp-scope3], but still used for screening purposes in the [GHGP/Quantis calculation tool](https://quantis-suite.com/Scope-3-Evaluator/).
+  - This is partly covered as yes, most organizations pay for this, but then again an activity-based method where the quantities and types of waste are combined with information about how the waste is handled, will give much more accurate results. Note that a spend-based approach is not strictly speaking listed in the GHGP scope 3 calculation guidance for category 5 (scope 3 guide[^ghgp-scope3], Chapter 5), but still used for screening purposes in the [GHGP/Quantis calculation tool](https://quantis-suite.com/Scope-3-Evaluator/).
 - Category 6: business travel
   - Indeed covered as this is something organizations pays for, but oftentimes bulked into joint invoices from travel agencies where it is hard to say how much is used on what part of the travel. This is a category where many companies today have calculated their emissions related to air travel, but typically not other parts of their business travel.
 
 Note that in this setting, procurement data will mostly be used with a spend-based approach, but in some cases the data also include quantities or other activity-based information on a product level that can be used with activity-based or supplier-specific calculations.
 
-[^ghgp-scope3]: [Greenhouse Gas Protocol: Technical Guidance for Calculating Scope 3 Emissions](https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf)
-
 ## Ignite carbon accounting methodology
 
-Ignite follows a 3-step approach to upstream scope 3 carbon accounting:
+The Ignite Procurement methodology is heavily inspired by what the GHGP calls 'Using a combination of calculation methods' (scope 3 guide[^ghgp-scope3], Introduction, page 13):
+
+> For example, within each scope 3 category, a
+> company may use more specific methods for the activities that contribute most to emissions and less specific methods
+> for the activities that contribute least to emissions.
+
+To do this, Ignite follows a 3-step approach to upstream scope 3 carbon accounting:
 
 1. Start by covering as many categories (both scope 3 categories and spend categories when based on procurement data) to create initial estimates that enables insights into where to focus further efforts.
 2. Drill down into the categories of interest where more effort should be used to increase the accuracy, for instance by switching from a spend-based to an activity-based calculation.
@@ -78,3 +83,15 @@ Another important consideration is the fact that organizations sometimes chose t
 ![image](https://user-images.githubusercontent.com/88656160/204543274-40515d15-3727-40b0-9e5d-9d34d225aae4.png)
 
 As shown in the image above, it is important to take into account the methodology, completeness and assumptions related to the supplier specific numbers. Today there are still many different ways of calculating emissions, and few companies have calculated their total scope 3, so when comparing numbers from different suppliers, make sure to do the comparison on similar grounds.
+
+## Results
+
+Using this methodology, it is possible to get corporation-level results of emissions within different parts of scope 3 that can be used for reporting. Additionally, the results will give insights into where the estimated emission hot-spots are and where to focus efforts related to increasing accuracy and reducing emissions. It is also essential to move to supplier-specific calculations (in some cases activity-based ones can also be enough) to be able to actually measure the effect of reduction initiatives.
+
+For Ignite's own emissions, this method, with the addition of some activity-based calculations on scope 2 and other parts of scope 3, resulted in the following emissions.
+
+When combined with company metrics such as number of employees and sales revenue, it becomes possible to showcase the emission intensities over time, relevant for target-setting and comparison with other similar companies. This can also be used to compare oneself or suppliers to the industry average by comparing to the corresponding Exiobase emission factor as seen with below with Ignite's emission intensities.
+
+With a combination of methods, it is important to be able to visualize the distribution of what data and what calculation methods that have been used on the relative portions of the total calculated emissions. The analytics below show examples of this directly from our own carbon accounting.
+
+[^ghgp-scope3]: [Greenhouse Gas Protocol: Technical Guidance for Calculating Scope 3 Emissions](https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf)
