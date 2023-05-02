@@ -4,6 +4,22 @@ A document describing the changes to this project, formatted based on [Keep a Ch
 
 The versioning mainly follows the updates to the emission factor database (first two numbers). However, this changelog document also document other notable changes to this project, noted by the PATCH version (last number in the versioning).
 
+## [1.1.4] - 2023-05-02
+
+Adding the first version of our database for activity based emission factors. This will be used in our Ignite app in the cases where activity-data is added in addition to spend-based calculations. Also fixing a faulty link.
+
+### Updated
+
+- Structure of emission factor directory
+
+### Added
+
+- First version of our activity-based emission factor database
+
+### Fixed
+
+- Link to Exiobase emission factor description from main README-file
+
 ## [1.1.3] - 2023-03-13
 
 General updates to the texts in the three documents listed below. Primarily minor fixes of spelling and structure to make the information more clear and concise, but also the addition of concrete examples from Ignite's own carbon accounting.
