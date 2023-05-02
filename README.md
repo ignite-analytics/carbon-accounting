@@ -69,6 +69,6 @@ It is important to carefully consider these challenges and address them in an ap
 
 ## Other Files
 
-An explanation of the Exiobase database, as well as how Ignite has updated it to adjust outliers and blank values, can be found in [exiobase-emission-factors/EXIOBASE.md](exiobase-emission-factors/EXIOBASE.md).
+An explanation of the Exiobase database, as well as how Ignite has updated it to adjust outliers and blank values, can be found in [EXIOBASE.md](emission-factors/exiobase/IGNITE_VERSION_OF_EXIOBASE.md).
 
-The Ignite carbon accounting methodology is described in [methodology/METHODOLOGY.md](methodology/METHODOLOGY.md). It is built on the [Greenhouse Gas Protocol](https://ghgprotocol.org/), and can be used for reporting according to [GRI](https://www.globalreporting.org/) and [CDP](https://www.cdp.net/) as well.
+The Ignite carbon accounting methodology is described in [METHODOLOGY.md](methodology/METHODOLOGY.md). It is built on the [Greenhouse Gas Protocol](https://ghgprotocol.org/), and can be used for reporting frameworks such as [GRI](https://www.globalreporting.org/) and [CDP](https://www.cdp.net/).
