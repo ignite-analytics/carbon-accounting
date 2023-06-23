@@ -1,7 +1,9 @@
 import pandas as pd
 import re
 
-df = pd.read_csv("emission-factors/activities/activity_based_EF_database.csv")
+df = pd.read_csv(
+    "./emission-factors/activities/activity_based_EF_database.csv", sep=";"
+)
 
 
 def to_camel_case(string):
