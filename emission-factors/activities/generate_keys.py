@@ -20,8 +20,8 @@ def formatString(string):
     return "BLANK"
 
 
-def formatKey(region, unit, year, category, activityL1, activityL2):
-    return f"{region}_{unit}_{year}_{category}_{activityL1}_{activityL2}"
+def formatKey(region, year, unit, category, activityL1, activityL2):
+    return f"{region}_{year}_{unit}_{category}_{activityL1}_{activityL2}"
 
 
 def convertUnit(unit):
@@ -54,8 +54,8 @@ df = pd.read_csv(
 df["KEY"] = df.apply(
     lambda row: formatKey(
         row["Region"],
-        convertUnit(row["Activity unit"]),
         row["Year"],
+        convertUnit(row["Activity unit"]),
         formatString(row["GHG Scopes and categories L2"]),
         formatString(row["Activity L1"]),
         formatString(row["Activity L2"]),
