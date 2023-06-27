@@ -1,8 +1,6 @@
 import pandas as pd
 import re
 
-df = pd.read_csv("emission-factors/activities/activity_based_EF_database.csv")
-
 
 def to_camel_case(string):
     return "".join(x.capitalize() for x in str(string).lower().split(" "))
@@ -19,21 +17,45 @@ def formatString(string):
     if pd.isna(string) == False:
         clean_string = "".join(re.findall(r"([a-zA-Z]|\d|\s|\.*)", string))
         return to_lower_camel_case(clean_string)
-    return None
+    return "BLANK"
 
 
-def formatKey(
-    region, unit, year, scope, category, activityL1="BLANK", activityL2="BLANK"
-):
-    return f"{region}_{unit}_{year}_{scope}_{category}_{activityL1}_{activityL2}"
+def formatKey(region, year, unit, category, activityL1, activityL2):
+    return f"{region}_{year}_{unit}_{category}_{activityL1}_{activityL2}"
 
 
+def convertUnit(unit):
+    unit_conversions = {
+        "kg": "kg",
+        "litres": "l",
+        "GJ": "GJ",
+        "kWh": "kWh",
+        "kWh (Net CV)": "kWh",
+        "kWh (Gross CV)": "kWhGross",
+        "tonnes": "t",
+        "Room per night": "roomsPerNight",
+        "miles": "miles",
+        "km": "km",
+        "m3": "m3",
+    }
+    try:
+        return unit_conversions[unit]
+    except:
+        raise Exception(
+            f"Unit {unit} was not found in unit_conversions. \nPlease add value that corresponds to the manualEmissions-database unit and ensure that the unit is handled in the app and backend"
+        )
+
+
+### Generate keys
+
+df = pd.read_csv(
+    "./emission-factors/activities/activity_based_EF_database.csv", sep=";"
+)
 df["KEY"] = df.apply(
     lambda row: formatKey(
         row["Region"],
-        row["Activity unit"],
         row["Year"],
-        formatString(row["GHG Scopes and categories L1"]),
+        convertUnit(row["Activity unit"]),
         formatString(row["GHG Scopes and categories L2"]),
         formatString(row["Activity L1"]),
         formatString(row["Activity L2"]),
