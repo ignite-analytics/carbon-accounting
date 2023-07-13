@@ -37,6 +37,11 @@ def convertUnit(unit):
         "miles": "miles",
         "km": "km",
         "m3": "m3",
+        "passenger-km": "pkm",
+        "cubic metres (m3)": "m3",
+        "million litres": "Ml",
+        "tonne-km": "tkm",
+        "FTE working hour": "FTEhour",
     }
     try:
         return unit_conversions[unit]
