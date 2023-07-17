@@ -4,6 +4,25 @@ A document describing the changes to this project, formatted based on [Keep a Ch
 
 The versioning mainly follows the updates to the emission factor database (first two numbers). However, this changelog document also document other notable changes to this project, noted by the PATCH version (last number in the versioning).
 
+## [1.1.6] - 2023-07-13
+
+Updating the activity-based emission factors with more factors from BEIS/DEFRA for scope 3. Also adding some tooling for converting the emission factor CSV to the needed types for our Ignite carbon accounting module.
+
+### Updated
+
+- Activity-based emission factor database
+- Script for generating keys
+
+### Added
+
+- Tooling for getting types from emission factor CSV
+
+## [1.1.5] - 2023-06-22
+
+### Added
+
+- Method for generating keys for the activity-based emission factors
+
 ## [1.1.4] - 2023-05-02
 
 Adding the first version of our database for activity based emission factors. This will be used in our Ignite app in the cases where activity-data is added in addition to spend-based calculations. Also fixing a faulty link.
