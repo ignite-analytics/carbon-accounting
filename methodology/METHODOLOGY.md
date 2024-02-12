@@ -1,114 +1,64 @@
 ## Table of contents
 
-- [Introduction](#introduction)
 - [Ignite Carbon Accounting Methodology](#ignite-carbon-accounting-methodology)
-  - [Step 1: Create heatmap](#step-create-heatmap)
-  - [Step 2: Select activities](#step-select-activities)
-  - [Step 3: Supplier specifics](#step-supplier-specifics)
-- [Results](#results)
-
-## Introduction
-
-Quite a lot of the indirect emissions covered by the 15 categories of scope 3 can usually be estimated using procurement data, especially when considering the typical sizes of the different categories. Scope 3 category 1: purchased goods and services, is usually the largest source of emissions for an organization, also when compared with scope 1 and 2. For Ignite, this one category covers around 62% of our total emissions. Naturally, this is a category where the most detailed information related to the emissions, i.e. what do you buy and from who do you buy it, is something procurement covers better than any other part of an organization. As Ignite Procurement in its core is a data- and analytics platform focusing on strategic procurement, building on top of that functionality to include calculations on indirect emissions was a natural step.
-
-There are also other parts of an organizations scope 3 emissions where procurement data can be used as the basis for calculation. These are
-
-- Category 2: capital good
-  - Calculated in the same way as category 1, just distinguished by what is considered capital goods in financial reporting.
-- Category 3: fuel and energy-related activities
-  - This category includes the cradle-to-gate emissions of purchased fuels and electricity, as well as the transportation and distribution losses of purchased electricity. The GHGP scope 3 calculation guidance (scope 3 guide[^ghgp-scope3], Chapter 3) does not mention spend as a source for calculating this category, so this is mainly relevant where activity data is available either in the procurement data or separately. However, Exiobase does include spend-based emission factors for cradle-to-gate emissions for a range of fuels, with regional and temporal distinguishment that is lacking for some activity-based emission factors for the same products. A spend-based approach could therefore be used for screening purposes, even though care should be taken, and it should not be used in reporting to be in accordance with the GHGP.
-- Category 4: transportation and distribution
-  - In the cases where the organization pays for this separately, this can definitively be covered by procurement data. If not fuel amount or distances are available, then a spend-based approach can be used. Note that this category covers both inbound and outbound logistics, as long as the reporting corporation pays for the service.
-- Category 5: waste generated in operations
-  - This is partly covered as yes, most organizations pay for this, but then again an activity-based method where the quantities and types of waste are combined with information about how the waste is handled, will give much more accurate results. Note that a spend-based approach is not strictly speaking listed in the GHGP scope 3 calculation guidance for category 5 (scope 3 guide[^ghgp-scope3], Chapter 5), but still used for screening purposes in the [GHGP/Quantis calculation tool](https://quantis-suite.com/Scope-3-Evaluator/).
-- Category 6: business travel
-  - Indeed covered as this is something organizations pays for, but oftentimes bulked into joint invoices from travel agencies where it is hard to say how much is used on what part of the travel. This is a category where many companies today have calculated their emissions related to air travel, but typically not other parts of their business travel.
-
-Note that in this setting, procurement data will mostly be used with a spend-based approach, but in some cases the data also include quantities or other activity-based information on a product level that can be used with activity-based or supplier-specific calculations.
+  - [Spend-based estimates](#spend-based-estimates)
+  - [Improving estimates over time](#improving-estimates-over-time)
+  - [Reviewing estimates](#reviewing-estimates)
 
 ## Ignite carbon accounting methodology
 
-The Ignite Procurement methodology is heavily inspired by what the GHGP calls 'Using a combination of calculation methods' (scope 3 guide[^ghgp-scope3], Introduction, page 13):
+Ignite's carbon accounting methodology is heavily inspired by what the GHG Protocol calls 'Using a combination of calculation methods' (scope 3 calculation guide, Introduction, page 13):
 
-> For example, within each scope 3 category, a
-> company may use more specific methods for the activities that contribute most to emissions and less specific methods
-> for the activities that contribute least to emissions.
+> For example, within each scope 3 category, a company may use more specific methods for the activities that contribute most to emissions and less specific methods for the activities that contribute least to emissions.
 
-To do this, Ignite follows a 3-step approach to upstream scope 3 carbon accounting:
+In Ignite it is possible to add different sources related to emissions, where spend is typically the main one and the starting point. For all scopes and underlying categories, it is also possible to add emissions-related activities, that are mapped to emission factors using standard databases. To date (January 2024), the following data bases have been built in:
 
-1. Start by covering as many categories (both scope 3 categories and spend categories when based on procurement data) to create initial estimates that enables insights into where to focus further efforts.
-2. Drill down into the categories of interest where more effort should be used to increase the accuracy, for instance by switching from a spend-based to an activity-based calculation.
-3. Contact the most essential suppliers within targeted categories to approach supplier specific calculation. This is necessary to be able to directly compare two different suppliers within the same industry or products within the same product/service category.
+- [BEIS/DEFRA](https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2023): Emission factors created by the UK government for calculating and reporting emissions
+- The International Panel for Climate Change ([IPCC](https://www.notion.so/Carbon-Accounting-Wiki-8d77e991b0e04d9cb80c7e6e3ab8fb12?pvs=21)): Emission factors for other greenhouse gases than CO₂ into CO₂-equivalents
+- Association of Issuing Bodies ([AIB](https://www.aib-net.org/facts/european-residual-mix/2022)): The organisation that handles guarantees of origin across the European electricity market. Provides location- and market-based emission factors for electricity consumption
+- [Hotelfootprints](https://www.hotelfootprints.org/): The source BEIS/DEFRA uses for emissions from hotel nights. We use this source directly to cover more countries.
 
-![image](https://user-images.githubusercontent.com/88656160/204540717-3844d08e-604b-449a-9af9-49bc5b2e939c.png)
+For each added activity, relevant information is added to Ignite using a set of forms that vary depending on the scope and category. Certain forms have specific functionality, such as handling guarantees of origin and renewable energy certificates for electricity consumption. In addition to the emission categories selected when filling in the forms, connecting with specific emission factors, some additional information is used when selecting the best-fitting emission factor:
 
-### Step 1: Create heatmap
+- A time range, that is used to describe when the activity took place. Typically a whole year, but with the possibility of more granular breakdowns. This information is used both for selecting which year the activity should be reported within, as well as for selecting the best fitting emission factor with regards to time. If we don’t have any emission factor for the selected year, we will choose the closest one in time.
+- A country, which is used to select the best fitting regional emission factors if available. For many activities we only have one value, for instance for most categories from BEIS/DEFRA, but for electricity consumption, regional differences can be significant and we have factors for all the 34 countries in the AIB data set.
 
-What Ignite provides out of the box and which can be set up within a day of having access to a company's procurement data is the initial match of every single purchase with a spend-based Exiobase emission factor. There are three things that will have to be matched as those are the three dimensions to the Exiobase database: year, region and product category.
+For all of the forms, it is possible to add already calculated emissions in kg or tonnes of CO₂e, with the relevant documentation as files, as well as comments to that activity. It is also possible to improve any spend-based estimates with relevant activities, which is covered more in detail below. To review any activity, all the relevant information, including who added it and when, is easily available in Ignite for internal reviews and external audits.
 
-For mapping a purchase by its year, this is usually pretty straight forward. The most challenging decision is what date to chose if more are available. We try to use the year from the transaction date where possible, but invoice date can also be used, and if the company has fiscal years defined in their data, that information is used to match up the calculations with their financial reporting. Matching with an Exiobase region is usually also relatively simple, as most companies have supplier country as a field in their procurement data, where we have standard rulesets going from the different spellings of countries, as well as Alpha-2 codes, into the 49 Exiobase regions. In some cases, parts of the spend is also matched to regions using payment currencies where no supplier country was available.
+In certain cases with custom setups, other kinds of emission factor databases or activities uploaded to Ignite by bulk can also be used for the company’s carbon accounting. In these cases complete transparency on the raw data and how it is mapped to emission factors is available.
 
-The third part of matching with an emission factor, matching each transaction with an Exiobase product/service category is the most challenging one, and is usually done in multiple iteration with increasing accuracies. The first iteration of this process utilize supplier industry information from 3rd-party databases like [Enin](https://www.enin.ai/) and [Infobel](https://www.infobel.com/), where all NACE and SIC industry codes on the lowest level have been matched to Exiobase as standard rulesets. Everything that is not categorized by this method at this stage will be put into the regional average bucket (weighted by industry size in each region), where only the supplier region and purchase year will decide the emission factor. The next iteration involves creating rules from more accurate information like GL account, product description or spend categorization, depending on what is available. In some cases it will be possible to map all spend by a high-accuracy dimension such as by a product master. If this is the case, then this should be strived for. However, note that it is the most important categories (when accounting for spend size, emissions size and how vital the category is for the company) that should be prioritized in this iterative work towards more accurate calculations.
+As spend-based estimates are highly uncertain, it is important to improve the relevant scope 3 estimates over time by switching the calculation methodology to the average data, hybrid, or supplier-specific methods for more and more spend over time. To do this, Ignite follows a 3-step approach to upstream scope 3 carbon accounting:
 
-The flow of this process is described in the slide below.
+1. **Initial Coverage and Estimation**: Ignite's system begins with a broad coverage of emissions categories, creating initial estimates using procurement data. This includes matching spend with appropriate spend-based Exiobase emission factor, considering the year, region, and product category. This is done using either aggregated values per supplier and year, or detailed procurement data, typically on an invoice level. These differences are described to more detail below.
+2. **Drill-Down into Specific Activities**: After establishing a baseline, the focus shifts to increasing the accuracy of emissions data in selected categories. This is achieved by transitioning from spend-based to activity-based calculations in key areas. Common categories for enhanced accuracy include business travel, raw materials, logistics, and waste management, but depends on the specifics of each company.
+3. **Engagement with Suppliers for Specific Data**: The third step involves direct engagement with key suppliers to obtain more accurate, supplier-specific emission data. This is highly relevant for strategic categories or those that significantly contribute to an organisation's emissions. Supplier-specific data allow for more accurate tracking of emission reductions over time and can highlight the effectiveness of choosing lower-emission options.
 
-![image](https://user-images.githubusercontent.com/88656160/204540792-8ecec762-a6d2-4c98-98ff-736653e1bd63.png)
+This is a continuous process where companies using Ignite are able to over time improve their estimates. This is done both by switching out larger parts of their spend with more specific data for each year, and to use more and more supplier-specific data for their carbon accounting as more data is available from their suppliers.
 
-For the other parts of scope 3 categories not related to procurement, other initial estimates should be conducted as a screening to add information on where further efforts should be focused. This is however not something that has been built into Ignite at this stage.
+### Spend-based estimates
 
-### Step 2: Select activities
+Ignite provides out-of-the-box initial spend-based estimates by matching spend with emission factors from the Exiobase 3.8.2 database. There are three things that will have to be mapped as those are the three dimensions to the Exiobase database; year, region and product category:
 
-All organizations should strive towards increasing the accuracy of their calculated emissions over time. However, the first step is to start somewhere, so this is mostly relevant after running the spend-based method and an initial screening. Based on those results and the specifics of your corporation/organization, it should be possible to select certain categories where it is necessary to increase the accuracy to be able to start more specific initiatives on emission reduction.
+- For mapping a purchase by its year, this is usually pretty straight forward. The most challenging decision is what date information to chose if more than one is available. If the reporting company has reporting years defined in their data, that information is used to match up the calculations with their financial reporting.
+- Matching with an Exiobase region is usually also relatively simple, as most companies have supplier country as a field in their procurement data, where we have standard rulesets going from the different spellings of countries, as well as Alpha-2 codes, into the 49 Exiobase regions. In some cases, parts of the spend is also matched to regions using payment currencies where no supplier country is available.
+- The third part of matching with an emission factor is the most challenging one; mapping to an Exiobase product category for goods and services. The first iteration of this process utilises supplier industry information from 3rd-party databases like [Enin](https://www.enin.ai/) and [Infobel](https://www.infobel.com/), where all NACE industry codes on the lowest level have been matched to Exiobase as a standard ruleset. Everything that is not categorised by this method at this stage will be put into the regional average bucket (weighted by industry size in each region), where only the supplier region and purchase year will decide the emission factor.
 
-Some categories are more common for this exercise than others, both based on the availability of more specific emission data and what categories the accuracy increases the most when moving from spend-based to activity-based calculations. A typical example that many companies have already started with is the business travel category, specifically for air travel as this is something many travel agencies have numbers on already and it is a much talked about category. Calculations based on the number of passengers and the distance of a flight is much more accurate than only looking at the spend, as tickets to the same flight will vary hugely in price based on availability and other factors that doesn't necessarily increase the emissions correspondingly (for instance buying business vs economy). Other typical categories are as shown in the image below:
+**The two different setups in Ignite and how it affects estimates**
 
-- Raw materials
-  - The cradle-to-gate emissions for fuels (scope 3, category 3)
-  - Packaging and building materials, where the prices often fluctuate quite a bit within a year (scope 3 category 1)
-- Logistics
-  - A category where activity data is often reasonably available and where the calculated results are more accurate than with a spend-based approach
-- Waste
-  - Scope 3 category 5 can be covered by a spend-based approach, but an activity-based calculation will be much more accurate as more information on the type of waste and what is being done with it can be included
-- Business travel
-  - Especially the flights can be covered well with activity-based calculations, but also to a larger degree other modes of transport and hotel stays as well. A possibility is to use numbers from your travel agency on flights, but the spend-based approach on the rest of this category.
+- Supplier table
+  - A setup in Ignite where the spend-based estimates are based on the supplier table, which means the total aggregated spend with each supplier, with values for each relevant year. The values are without VAT, and all in one currency. With this setup, users of Ignite can add NACE industry information or country in the cases where this was unavailable in the initial setup. It is also possible to adjust the information to better represent the actual goods or services procured from each supplier. The main limitation with this setup is that it is not possible to break down the spend-based estimate into more than one category per supplier, which reduces complexity, but also granularity and in some cases accuracy.
+- Spend table
+  - With this setup, the spend information in Ignite is on a much more granular level, typically on an invoice basis, but sometimes with PO data, or down to invoice line level. The next iteration of matching with Exiobase emission factors involves creating rules from more accurate information like GL account, product description or spend categorization, depending on what is available. In some cases it will be possible to map all spend by a high-accuracy dimension such as by a product master. If this is the case, then this should be strived for. However, note that it is the most important categories (when accounting for spend size, emissions size and how vital the category is for the company) that should be prioritised in this iterative work towards more accurate calculations. For this, the Ignite Classification module is used, where rulesets are built on each of the different dimensions used, with specific precedence of each ruleset.
 
-![image](https://user-images.githubusercontent.com/88656160/204543215-604eec5c-6444-402c-b2c4-ab0f6879c023.png)
+### Improving estimates over time
 
-### Step 3: Supplier specifics
+In Ignite, it is easily possible to improve spend-based estimates by adding activities related to certain parts of a company’s spend. This works a bit differently for the two kinds of setups, but the principle is the same. When adding an activity, using the average data-, hybrid-, or supplier-specific methods, which translates to adding an activity that Ignite has a standard emission factors for, or an already calculated emission, that activity can be connected to spend.
 
-For the products that are of strategic importance and that by initial screening seems to represent a relatively large portion of your emissions, you should strive towards getting supplier specific emission estimates. This is both as a step to increase the accuracy, but also of importance when measuring reductions over time as neither spend- nor activity-based calculations typically shows anything other than a general decrease in spend or activity amount, or a general trend within the industry.
+- Supplier table
+  - With this setup, it is possible to connect one or more activities to a supplier, where the spend-based estimate for the selected year will be disregarded as a result. If not all the spend with a supplier within a specific year can be covered by one activity, more will have to be added to make sure nothing is left out. The sum of all the added activities for a combination of supplier and year will replace the spend-based estimates for that same combination.
+- Spend table
+  - When emissions are estimated from the full spend table, it is possible to improve emissions with more granularity when going from spend to more specific estimates. The typical examples are still connected to spend with a certain supplier, but it can be defined to only cover transactions within a limited time period (not limited to full years), and with more specific clarifications such as only spend within a certain spend category or account.
 
-Another important consideration is the fact that organizations sometimes chose to pay more for a goods or service that has less emissions, which would in a spend-based calculation increase the estimate, while it should be lowered. The main solution to this is to move to supplier specific calculations for these cases.
+### Reviewing estimates
 
-![image](https://user-images.githubusercontent.com/88656160/204543274-40515d15-3727-40b0-9e5d-9d34d225aae4.png)
-
-As shown in the image above, it is important to take into account the methodology, completeness and assumptions related to the supplier specific numbers. Today there are still many different ways of calculating emissions, and few companies have calculated their total scope 3, so when comparing numbers from different suppliers, make sure to do the comparison on similar grounds.
-
-## Results
-
-Using this methodology, it is possible to get corporation-level results of emissions within different parts of scope 3 that can be used for reporting. Additionally, the results will give insights into where the estimated emission hot-spots are and where to focus efforts related to increasing accuracy and reducing emissions. It is also essential to move to supplier-specific calculations (in some cases activity-based ones can also be enough) to be able to actually measure the effect of reduction initiatives.
-
-For Ignite's own emissions, this method, with the addition of some activity-based calculations on scope 2 and other parts of scope 3, resulted in the following emissions.
-
-![Screenshot 2023-03-13 at 12 30 40](https://user-images.githubusercontent.com/88656160/224689812-488f4609-cc27-4184-96e1-b40ea2590e8e.png)
-
-![2022-emissions-by-category-and-data-quality- tco2e -2023-03-09](https://user-images.githubusercontent.com/88656160/224690019-d8fb799e-429e-424f-a401-2bcbd35acffb.svg)
-
-![emissions-over-time-by-ghg-scopes-and-categories- tco2e -2023-03-09](https://user-images.githubusercontent.com/88656160/224689986-190a125f-fa01-41e7-ab7e-191c057a6094.svg)
-
-When combined with company metrics such as number of employees and sales revenue, it becomes possible to showcase the emission intensities over time, relevant for target-setting and comparison with other similar companies. This can also be used to compare oneself or suppliers to the industry average by comparing to the corresponding Exiobase emission factor as seen with below with Ignite's emission intensities.
-
-![ignite-emission-intensities-2023-03-09](https://user-images.githubusercontent.com/88656160/224690221-ff082fa0-060b-459f-98e5-f33271c6da2e.svg)
-
-
-![ignite-specific-emission-factor-compared-to-the-exiobase-emission-factor-for-'computer-and-related-services'-in-norway-2023-03-09](https://user-images.githubusercontent.com/88656160/224690154-eb88e7ff-140c-401e-8aad-b614c0ac730a.svg)
-
-
-With a combination of methods, it is important to be able to visualize the distribution of what data and what calculation methods that have been used on the relative portions of the total calculated emissions. The analytics below show examples of this directly from our own carbon accounting.
-
-![calculation-specificity-development-2023-03-09](https://user-images.githubusercontent.com/88656160/224690344-469eb51d-7588-430c-a1e8-962ed3841e70.svg)
-
-![primary_secondary-data-according-to-the-ghgp-2023-03-09](https://user-images.githubusercontent.com/88656160/224690381-36258fd4-4baf-4be0-9fa8-733309d98e41.svg)
-
-
-[^ghgp-scope3]: [Greenhouse Gas Protocol: Technical Guidance for Calculating Scope 3 Emissions](https://ghgprotocol.org/sites/default/files/standards/Scope3_Calculation_Guidance_0.pdf)
+An important part of reporting corporate GHG inventories is to align with the GHG Protocol principle of transparency. To do this in Ignite, all added activities have full transparency on who added it, when it was added and a change log of edits to each activity. Is is also possible to look into which emission factors has been used, with the potential to add descriptions and documentation for each activity. If an activity has been mapped to spend, i.e. improving the specificity of that estimate, this information is also easily available for each activity.
