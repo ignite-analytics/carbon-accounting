@@ -1,11 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software, standard or data base, please cite it as below."
 authors:
-  - family-names: "Ignite Procurement"
+  - family-names: "Ignite"
     given-names: ""
   - family-names: "Backsæther"
     given-names: "Mathias"
-title: "Ignite Procurement Carbon Accounting Methodology"
-version: 1.1.2
+title: "The Ignite GHG Accounting Methodology"
+version: 1.1.7
 date-released: 2022-11-21
 url: "https://github.com/ignite-analytics/carbon-accounting"
