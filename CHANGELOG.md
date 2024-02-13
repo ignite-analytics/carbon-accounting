@@ -4,6 +4,17 @@ A document describing the changes to this project, formatted based on [Keep a Ch
 
 The versioning mainly follows the updates to the emission factor database (first two numbers). However, this changelog document also document other notable changes to this project, noted by the PATCH version (last number in the versioning).
 
+## [1.1.7] - 2024-02-12
+
+Updating the full methodology description to better represent Ignite's current version of GHG accounting.
+
+### Updated
+
+- [CITATION.cff](CITATION.cff)
+- [README.md](README.md)
+- [methodology/METHODOLOGY.md](methodology/METHODOLOGY.md)
+- [emission-factors/exiobase/IGNITE_VERSION_OF_EXIOBASE.md](emission-factors/exiobase/IGNITE_VERSION_OF_EXIOBASE.md)
+
 ## [1.1.6] - 2023-07-13
 
 Updating the activity-based emission factors with more factors from BEIS/DEFRA for scope 3. Also adding some tooling for converting the emission factor CSV to the needed types for our Ignite carbon accounting module.
